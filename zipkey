@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-echo -n "Enter Dir name: "
+echo -n "Enter Dir or Zip(без .zip) name: "
 read dirx
 if [ -d ./$dirx/ ]; then
 echo -n "New Pass: "
@@ -7,8 +7,7 @@ read spx
 
 zip --password $spx -r $dirx.zip $dirx
 rm -rf $dirx/
-else 
+else
 unzip $dirx.zip
 rm -rf $dirx.zip
 fi
-
