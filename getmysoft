@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+sudo apt-get install -f -y
+sudo apt-get install toilet -y
+sudo apt-get install boxes -y
+sudo apt-get install lolcat -y
+toilet -w 180 'Redy?' | boxes -d cat -a hc -p h10 | lolcat
+
+
+echo "1)Install all
+2)Install minimum"
+
+read whvar
+
+if [ $whvar -eq 1 ]; then
+toilet -w 180 'Maximum Start' | boxes -d dog -a hc -p h10 | lolcat
+sudo apt-get install git -y
+sudo add-apt-repository ppa:webupd8team/atom -y
+sudo apt-get update -y
+sudo apt-get install atom -y
+sudo apt-get install gimp -y
+sudo apt-get install terminator -y
+wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
+sudo dpkg -i gitkraken-amd64.deb -y
+sudo add-apt-repository ppa:atareao/telegram -y
+sudo apt-get update -y
+sudo apt-get install telegram -y
+fi
+
+if [ $whvar -eq 2 ]; then
+echo "minimal"
+fi
