@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+echo -n "Enter file name(file.txt or *.txt): "
+read filetokill
+echo -n "Enter dir path(from ~ to dir './Documents/dir'): "
+read dptofile
+echo -n "1-Find and dell files only in dir;
+2-Find and dell files in dir recursively(-r)"
+read killmodx
+
+if [ $killmodx -eq 1 ]; then
+cd ~
+find $dptofile -type f -name "$filetokill" -delete
+fi
+
+if [ $killmodx -eq 2 ]; then
+cd ~
+find $dptofile -name $filetokill | xargs rm -rf
+
+#find $dptofile -name "$filetokill" | xargs rm
+#rm -rf $filetokill
+
+fi
