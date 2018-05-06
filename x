@@ -6,6 +6,18 @@ if [ ! -z $1 ]; then
     FUNCTION="$1"
 fi
 
+showHelp(){
+  echo -n "Не забываем sudo ./x для норм. работы:"
+  echo -n "givemesoft - для новой ОС"
+  echo -n "dockerinst/dockerdel - установка/удаление docker"
+  echo -n "dockerapp - развертывание докер среды разработки"
+  echo -n "torbuild/torstart/torstop - установка/включение/выключение TOR"
+  echo -n "filekiller - найти и удалить файл/файлы по маске"
+  echo -n "prockiller - убить процесс по имени"
+  echo -n "zipkey - создать зашифрованный архив и удалить исходник"
+  echo -n ""
+}
+
 filekiller(){
   echo -n "Enter file name(file.txt or *.txt): "
 read filetokill
