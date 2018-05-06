@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-echo -n "Enter proc name: "
-read dirx
-kill `ps aux|grep $dirx|sed "s/root *\([0-9]*\) .*/\1/"`. 2>/dev/null
-echo "Die".$dirx
