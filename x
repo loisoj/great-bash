@@ -7,49 +7,57 @@ if [ ! -z $1 ]; then
 fi
 
 showHelp(){
-  echo -n "Не забываем sudo ./x для норм. работы:"
-  echo -n "givemesoft - для новой ОС"
-  echo -n "dockerinst/dockerdel - установка/удаление docker"
-  echo -n "dockerapp - развертывание докер среды разработки"
-  echo -n "torbuild/torstart/torstop - установка/включение/выключение TOR"
-  echo -n "filekiller - найти и удалить файл/файлы по маске"
-  echo -n "prockiller - убить процесс по имени"
-  echo -n "zipkey - создать зашифрованный архив и удалить исходник"
-  echo -n ""
+  echo -e "Не забываем sudo ./x для норм. работы: "
+  echo -e "givemesoft - для новой ОС"
+  echo -e "dockerinst/dockerdel - установка/удаление docker"
+  echo -e "dockerapp - развертывание докер среды разработки"
+  echo -e "torbuild/torstart/torstop - установка/включение/выключение TOR"
+  echo -e "filekiller - найти и удалить файл/файлы по маске"
+  echo -e "prockiller - убить процесс по имени"
+  echo -e "zipkey - создать зашифрованный архив и удалить исходник"
+  echo -e "cod - проверка статуса ответа сайта из консоли"
+  echo -e ""
 }
 
 filekiller(){
-  echo -n "Enter file name(file.txt or *.txt): "
+  echo -e "Enter file name(file.txt or *.txt): "
 read filetokill
-echo -n "Enter dir path(from ~ to dir './Documents/dir'): "
+echo -e "Enter dir path(from ~ to dir './Documents/dir'): "
 read dptofile
-echo -n "1-Find and dell files only in dir;
+echo -e "1-Find and dell files only in dir;
 2-Find and dell files in dir recursively(-r)"
 read killmodx
 
 if [ $killmodx -eq 1 ]; then
 cd ~
-find $dptofile -type f -name "$filetokill" -delete
+find $dptofile -type f -eame "$filetokill" -delete
 fi
 
 if [ $killmodx -eq 2 ]; then
 cd ~
-find $dptofile -name $filetokill | xargs rm -rf
+find $dptofile -eame $filetokill | xargs rm -rf
 fi
 }
 
+cod(){
+echo -e "Wait the URL: "
+read urltotestcod
+echo -e ""
+curl -Is $urltotestcod | head -n 1
+}
+
 prockiller(){
-  echo -n "Enter proc name: "
+  echo -e "Enter proc name: "
 read dirx
 kill `ps aux|grep $dirx|sed "s/root *\([0-9]*\) .*/\1/"`. 2>/dev/null
 echo "Die".$dirx
 }
 
 zipkey(){
-  echo -n "Enter Dir or Zip(без .zip) name: "
+  echo -e "Enter Dir or Zip(без .zip) name: "
 read dirx
 if [ -d ./$dirx/ ]; then
-echo -n "New Pass: "
+echo -e "New Pass: "
 read spx
 
 zip --password $spx -r $dirx.zip $dirx
