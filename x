@@ -43,7 +43,7 @@ cod(){
 echo -e "Wait the URL: "
 read urltotestcod
 echo -e ""
-curl -Is $urltotestcod | head -n 1
+while true; do curl -Is $urltotestcod | head -n 1; sleep 2; done
 }
 
 prockiller(){
